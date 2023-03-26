@@ -1,6 +1,8 @@
 # Minecraft Material Prices
 
 currency: "USD"
+currency-symbol-side: "right"
+
 actions:
   success:
     - { command: "eco <player> give <price>" }

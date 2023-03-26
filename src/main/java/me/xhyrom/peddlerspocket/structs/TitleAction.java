@@ -20,14 +20,30 @@ public class TitleAction implements Action {
         player.showTitle(Title.title(
                 MiniMessage.miniMessage().deserialize(
                         title,
-                        Placeholder.parsed("price", Utils.removeDecimalIfZero(String.valueOf(result))),
-                        Placeholder.parsed("price_formatted", Utils.removeDecimalIfZero(Utils.format(result))),
+                        Placeholder.parsed("price", Utils.moveCurrencySymbol(
+                                Utils.removeDecimalIfZero(
+                                        String.valueOf(result)
+                                )
+                        )),
+                        Placeholder.parsed("price_formatted", Utils.moveCurrencySymbol(
+                                Utils.removeDecimalIfZero(
+                                        Utils.format(result)
+                                )
+                        )),
                         Placeholder.parsed("player", player.getName())
                 ),
                 MiniMessage.miniMessage().deserialize(
                         subtitle,
-                        Placeholder.parsed("price", Utils.removeDecimalIfZero(String.valueOf(result))),
-                        Placeholder.parsed("price_formatted", Utils.removeDecimalIfZero(Utils.format(result))),
+                        Placeholder.parsed("price", Utils.moveCurrencySymbol(
+                                Utils.removeDecimalIfZero(
+                                        String.valueOf(result)
+                                )
+                        )),
+                        Placeholder.parsed("price_formatted", Utils.moveCurrencySymbol(
+                                Utils.removeDecimalIfZero(
+                                        Utils.format(result)
+                                )
+                        )),
                         Placeholder.parsed("player", player.getName())
                 ))
         );
