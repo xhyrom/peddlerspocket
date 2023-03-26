@@ -16,6 +16,9 @@ repositories {
 dependencies {
     compileOnly("org.purpurmc.purpur", "purpur-api", "1.19.2-R0.1-SNAPSHOT")
 
+    compileOnly("org.projectlombok:lombok:1.18.26")
+    annotationProcessor("org.projectlombok:lombok:1.18.26")
+
     implementation("dev.jorel:commandapi-shade:8.8.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")

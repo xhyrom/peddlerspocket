@@ -1,0 +1,71 @@
+# Minecraft Material Prices
+
+actions:
+  success:
+    - { command: "eco <player> give <price>" }
+    - { title: "<green>+<price>$" }
+    - { message: "<green>You have sold things for <price>$" }
+  fail:
+    - { message: "<red>No item sold" }
+
+ui:
+  title: "<red>Peddlers Pocket"
+
+materials:
+  # Wood
+  wood:
+    OAK_PLANKS: 2
+    SPRUCE_PLANKS: 2
+    BIRCH_PLANKS: 2
+    JUNGLE_PLANKS: 2
+    ACACIA_PLANKS: 2
+    DARK_OAK_PLANKS: 2
+
+  # Ores
+  ores:
+    COAL_ORE: 10
+    IRON_ORE: 50
+    GOLD_ORE: 100
+    LAPIS_ORE: 50
+    DIAMOND_ORE: 150
+    EMERALD_ORE: 200
+
+  # Nether
+  nether:
+    NETHERRACK: 1
+    NETHER_QUARTZ_ORE: 30
+    NETHER_GOLD_ORE: 100
+    ANCIENT_DEBRIS: 500
+    CRIMSON_NYLIUM: 5
+    WARPED_NYLIUM: 5
+    CRIMSON_STEM: 2
+    WARPED_STEM: 2
+    CRIMSON_HYPHAE: 2
+    WARPED_HYPHAE: 2
+    NETHER_BRICKS: 2
+    RED_NETHER_BRICKS: 2
+    NETHER_QUARTZ_BLOCK: 5
+    BLACKSTONE: 2
+    GILDED_BLACKSTONE: 20
+    BASALT: 5
+    POLISHED_BASALT: 5
+    CRYING_OBSIDIAN: 50
+
+  # Other
+  other:
+    STONE: 1
+    GRASS_BLOCK: 2
+    DIRT: 1
+    COBBLESTONE: 1
+    BEDROCK: 999
+    WATER: 0
+    LAVA: 0
+    SAND: 1
+    RED_SAND: 1
+    GRAVEL: 1
+    ANCIENT_DEBRIS: 500
+    OBSIDIAN: 20
+    END_STONE: 2
+    END_STONE_BRICKS: 2
+    PURPUR_BLOCK: 5
+    SHULKER_BOX: 100

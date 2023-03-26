@@ -18,7 +18,7 @@
 
 ## Setup
 
-1. Clone this repository: `git clone https://github.com/rajce-pro/peddlerspocket.git`
+1. Clone this repository: `git clone https://github.com/xHyroM/peddlerspocket.git`
 2. Open project in Intellij Idea
 
 ## Contributing

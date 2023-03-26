@@ -1,0 +1,6 @@
+name: PeddlersPocket
+description: /sell command that allows you to put things into GUI and then sell them by closing
+version: 1.0.0
+author: xHyroM
+main: me.xhyrom.peddlerspocket.PeddlersPocket
+api-version: 1.19
