@@ -12,6 +12,9 @@
     </a>
 </p>
 
+## Informations
+
+- /sell command that allows you to put things into GUI and then sell them by closing
 
 ## Setup
 
