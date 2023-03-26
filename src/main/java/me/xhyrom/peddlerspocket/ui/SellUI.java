@@ -42,13 +42,13 @@ public class SellUI implements Listener {
     }
 
     public void close(Player player) {
-        int result = 0;
+        double result = 0;
         for (ItemStack item : inventory.getContents()) {
             if (item == null) continue;
             if (item.getType() == Material.AIR) continue;
 
             if (PeddlersPocket.getInstance().getPrices().containsKey(item.getType())) {
-                int price = PeddlersPocket.getInstance().getPrices().get(item.getType()) * item.getAmount();
+                double price = PeddlersPocket.getInstance().getPrices().get(item.getType()) * item.getAmount();
                 result += price;
             } else {
                 player.getInventory().addItem(item);

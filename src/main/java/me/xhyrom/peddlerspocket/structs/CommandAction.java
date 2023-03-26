@@ -1,5 +1,6 @@
 package me.xhyrom.peddlerspocket.structs;
 
+import me.xhyrom.peddlerspocket.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -11,12 +12,13 @@ public class CommandAction implements Action {
     }
 
     @Override
-    public void execute(Player player, int result) {
+    public void execute(Player player, double result) {
         Bukkit.dispatchCommand(
                 Bukkit.getConsoleSender(),
                 command
                         .replace("<player>", player.getName())
-                        .replace("<price>", String.valueOf(result))
+                        .replace("<price>", Utils.removeDecimalIfZero(String.valueOf(result)))
+                        .replace("<price_formatted>", Utils.removeDecimalIfZero(Utils.format(result)))
         );
     }
 }

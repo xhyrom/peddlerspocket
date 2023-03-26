@@ -1,10 +1,12 @@
 # Minecraft Material Prices
 
+currency: "USD"
 actions:
   success:
     - { command: "eco <player> give <price>" }
     - { title: "<green>+<price>$" }
     - { message: "<green>You have sold things for <price>$" }
+    - { sound: "entity.experience_bottle.throw", volume: 1, pitch: 1 }
   fail:
     - { message: "<red>No item sold" }
 

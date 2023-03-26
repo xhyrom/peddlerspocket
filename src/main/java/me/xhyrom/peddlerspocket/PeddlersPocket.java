@@ -16,7 +16,7 @@ public class PeddlersPocket extends JavaPlugin {
     @Getter
     private static PeddlersPocket instance;
     @Getter
-    private HashMap<Material, Integer> prices = new HashMap<>();
+    private HashMap<Material, Double> prices = new HashMap<>();
     @Getter
     private HashMap<Result, ArrayList<Action>> actions = new HashMap<>();
     public FileConfiguration config = getConfig();
@@ -35,7 +35,7 @@ public class PeddlersPocket extends JavaPlugin {
 
         config.getConfigurationSection("materials").getKeys(false).forEach(key -> {
             config.getConfigurationSection("materials."+key).getValues(false).forEach((k, v) -> {
-                prices.put(Material.getMaterial(k.toString()), (Integer) v);
+                prices.put(Material.getMaterial(k.toString()), Double.parseDouble(v.toString()));
             });
         });
 
@@ -57,6 +57,12 @@ public class PeddlersPocket extends JavaPlugin {
                 else if (config_action.containsKey("command"))
                     actions.add(new CommandAction(
                             config_action.get("command").toString()
+                    ));
+                else if (config_action.containsKey("sound"))
+                    actions.add(new SoundAction(
+                            config_action.get("sound").toString(),
+                            config_action.containsKey("volume") ? Float.parseFloat(config_action.get("volume").toString()) : 1,
+                            config_action.containsKey("pitch") ? Float.parseFloat(config_action.get("pitch").toString()) : 1
                     ));
             });
 
