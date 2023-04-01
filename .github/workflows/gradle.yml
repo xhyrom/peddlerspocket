@@ -12,6 +12,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      release:
+        type: boolean
+        description: Release build to reposilite
 
 jobs:
   build:
@@ -37,7 +42,7 @@ jobs:
           path: build/libs/
 
       - name: Upload build libs to reposilite
-        if: ${{ github.event.inputs.release }}
+        if: ${{ github.event.inputs.release == 'true' || github.event.inputs.release }}
         uses: gradle/gradle-build-action@7b3886699e7f5156c2650e6861b32ea2356df4d6
         with:
           arguments: publish -PmavenUsername=${{ secrets.REPOSILITE_USERNAME }} -PmavenPassword=${{ secrets.REPOSILITE_PASSWORD }}
