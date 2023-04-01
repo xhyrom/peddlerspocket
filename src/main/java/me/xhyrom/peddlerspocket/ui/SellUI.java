@@ -1,25 +1,15 @@
 package me.xhyrom.peddlerspocket.ui;
 
 import me.xhyrom.peddlerspocket.PeddlersPocket;
-import me.xhyrom.peddlerspocket.structs.Action;
-import me.xhyrom.peddlerspocket.structs.Result;
-import net.kyori.adventure.text.Component;
+import me.xhyrom.peddlerspocket.api.PeddlersPocketAPI;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
-import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class SellUI implements Listener {
     private Inventory inventory;
@@ -42,28 +32,7 @@ public class SellUI implements Listener {
     }
 
     public void close(Player player) {
-        double result = 0;
-        for (ItemStack item : inventory.getContents()) {
-            if (item == null) continue;
-            if (item.getType() == Material.AIR) continue;
-
-            if (PeddlersPocket.getInstance().getPrices().containsKey(item.getType())) {
-                double price = PeddlersPocket.getInstance().getPrices().get(item.getType()) * item.getAmount();
-                result += price;
-            } else {
-                player.getInventory().addItem(item);
-            }
-        }
-
-        if (result > 0) {
-            for (Action action : PeddlersPocket.getInstance().getActions().get(Result.SUCCESS)) {
-                action.execute(player, result);
-            }
-        } else {
-            for (Action action : PeddlersPocket.getInstance().getActions().get(Result.FAIL)) {
-                action.execute(player, result);
-            }
-        }
+        PeddlersPocketAPI.sell(player, inventory.getContents()).forEach(itemStack -> player.getInventory().addItem(itemStack));
 
         HandlerList.unregisterAll(this);
     }

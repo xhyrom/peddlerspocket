@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("maven-publish")
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
@@ -28,5 +29,28 @@ dependencies {
 tasks {
     shadowJar {
         relocate("dev.jorel.commandapi", "me.xhyrom.peddlerspocket.libs.commandapi")
+    }
+}
+
+publishing {
+    publications.create<MavenPublication>("maven") {
+        artifact(tasks["shadowJar"])
+
+        repositories.maven {
+            url = uri("https://repo.jopga.me/releases")
+
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+
+        groupId = rootProject.group as String
+        artifactId = project.name
+        version = rootProject.version as String
+
+        pom {
+            name.set("PeddlersPocket")
+        }
     }
 }
