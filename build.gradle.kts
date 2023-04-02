@@ -54,6 +54,9 @@ fun ShadowJar.configureRelocations() {
 
 publishing {
     publications.create<MavenPublication>("maven") {
+        artifact(tasks["shadowJarApi"])
+
+
         repositories.maven {
             url = uri("https://repo.jopga.me/releases")
 
