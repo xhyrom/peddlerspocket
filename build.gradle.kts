@@ -1,3 +1,5 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     id("java")
     id("maven-publish")
@@ -27,16 +29,31 @@ dependencies {
 }
 
 tasks {
-    shadowJar {
-        relocate("dev.jorel.commandapi", "me.xhyrom.peddlerspocket.libs.commandapi")
+    named<Jar>("jar") {
+        archiveClassifier.set("unshaded")
     }
+    shadowJar {
+        configureRelocations()
+    }
+    val shadowJarApi = register<ShadowJar>("shadowJarApi") {
+        from(sourceSets.main.get().output)
+        configurations = listOf(project.configurations.runtimeClasspath.get())
+        archiveFileName.set("PeddlersPocket-"+project.version+".jar")
+
+        configureRelocations()
+    }
+    named("build") {
+        dependsOn(shadowJar)
+        dependsOn(shadowJarApi)
+    }
+}
+
+fun ShadowJar.configureRelocations() {
+    relocate("dev.jorel.commandapi", "me.xhyrom.peddlerspocket.libs.commandapi")
 }
 
 publishing {
     publications.create<MavenPublication>("maven") {
-        from(components["java"])
-        artifact(tasks["shadowJar"])
-
         repositories.maven {
             url = uri("https://repo.jopga.me/releases")
 
