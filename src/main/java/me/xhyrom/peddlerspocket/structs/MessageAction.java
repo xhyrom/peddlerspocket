@@ -16,11 +16,7 @@ public class MessageAction implements Action {
     public void execute(Player player, double result) {
         player.sendMessage(MiniMessage.miniMessage().deserialize(
                 this.message,
-                Placeholder.parsed("price", Utils.moveCurrencySymbol(
-                        Utils.removeDecimalIfZero(
-                                String.valueOf(result)
-                        )
-                )),
+                Placeholder.parsed("price", String.valueOf(result)),
                 Placeholder.parsed("price_formatted", Utils.moveCurrencySymbol(
                         Utils.removeDecimalIfZero(
                                 Utils.format(result)

@@ -17,11 +17,7 @@ public class CommandAction implements Action {
                 Bukkit.getConsoleSender(),
                 command
                         .replace("<player>", player.getName())
-                        .replace("<price>", Utils.moveCurrencySymbol(
-                                Utils.removeDecimalIfZero(
-                                        String.valueOf(result)
-                                )
-                        ))
+                        .replace("<price>", String.valueOf(result))
                         .replace("<price_formatted>", Utils.moveCurrencySymbol(
                                 Utils.removeDecimalIfZero(
                                         Utils.format(result)
