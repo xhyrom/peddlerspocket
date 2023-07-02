@@ -1,6 +1,7 @@
 package me.xhyrom.peddlerspocket.commands;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.executors.CommandArguments;
 import me.xhyrom.peddlerspocket.ui.SellUI;
 import org.bukkit.entity.Player;
 
@@ -12,7 +13,7 @@ public class PeddlersCommand {
                 .register();
     }
 
-    public static void execute(Player player, Object[] args) {
+    public static void execute(Player player, CommandArguments args) {
         new SellUI().open(player);
     }
 }

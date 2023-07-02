@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PeddlersPocket.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PeddlersPocket.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/me.xhyrom.peddlerspocket.PeddlersPocket.main.iml" filepath="$PROJECT_DIR$/.idea/modules/me.xhyrom.peddlerspocket.PeddlersPocket.main.iml" />
     </modules>
   </component>
 </project>

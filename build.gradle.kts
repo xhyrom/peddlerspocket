@@ -22,7 +22,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
-    implementation("dev.jorel:commandapi-shade:8.8.0")
+    implementation("dev.jorel:commandapi-bukkit-shade:9.0.3")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")

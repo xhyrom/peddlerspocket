@@ -1,6 +1,7 @@
 package me.xhyrom.peddlerspocket;
 
 import dev.jorel.commandapi.CommandAPI;
+import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import dev.jorel.commandapi.CommandAPIConfig;
 import lombok.Getter;
 import me.xhyrom.peddlerspocket.commands.PeddlersCommand;
@@ -23,13 +24,13 @@ public class PeddlersPocket extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        CommandAPI.onLoad(new CommandAPIConfig().silentLogs(true));
+        CommandAPI.onLoad(new CommandAPIBukkitConfig(this).silentLogs(true));
     }
 
     @Override
     public void onEnable() {
         instance = this;
-        CommandAPI.onEnable(this);
+        CommandAPI.onEnable();
 
         saveDefaultConfig();
 
