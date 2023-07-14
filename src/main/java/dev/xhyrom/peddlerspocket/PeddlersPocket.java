@@ -19,7 +19,7 @@ public class PeddlersPocket extends JavaPlugin {
     private final HashMap<Material, Double> prices = new HashMap<>();
     @Getter
     private final HashMap<Result, ArrayList<Action>> actions = new HashMap<>();
-    public FileConfiguration config = getConfig();
+    public FileConfiguration config;
 
     @Override
     public void onLoad() {
@@ -28,10 +28,11 @@ public class PeddlersPocket extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        config = getConfig();
+
         instance = this;
         CommandAPI.onEnable();
-
-        saveDefaultConfig();
 
         config.getConfigurationSection("materials").getKeys(false).forEach(key -> {
             config.getConfigurationSection("materials."+key).getValues(false).forEach((k, v) -> {
