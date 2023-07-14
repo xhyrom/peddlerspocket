@@ -6,8 +6,8 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
-group = "me.xhyrom.peddlerspocket"
-version = "1.0.1"
+group = "dev.xhyrom.peddlerspocket"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -23,10 +23,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
     implementation("dev.jorel:commandapi-bukkit-shade:9.0.3")
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
+
 
 tasks {
     named<Jar>("jar") {
@@ -34,27 +32,31 @@ tasks {
     }
     shadowJar {
         configureRelocations()
-    }
-    val shadowJarApi = register<ShadowJar>("shadowJarApi") {
-        from(sourceSets.main.get().output)
-        configurations = listOf(project.configurations.runtimeClasspath.get())
-        archiveFileName.set("PeddlersPocket-"+project.version+".jar")
-
-        configureRelocations()
+        archiveClassifier.set("")
     }
     named("build") {
         dependsOn(shadowJar)
-        dependsOn(shadowJarApi)
+    }
+    processResources {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        from(sourceSets.main.get().resources.srcDirs) {
+            filter(
+                org.apache.tools.ant.filters.ReplaceTokens::class, "tokens" to mapOf(
+                    "name" to project.name,
+                    "version" to project.version,
+                )
+            )
+        }
     }
 }
 
 fun ShadowJar.configureRelocations() {
-    relocate("dev.jorel.commandapi", "me.xhyrom.peddlerspocket.libs.commandapi")
+    relocate("dev.jorel.commandapi", "dev.xhyrom.peddlerspocket.libs.commandapi")
 }
 
 publishing {
     publications.create<MavenPublication>("maven") {
-        artifact(tasks["shadowJarApi"])
+        artifact(tasks["shadowJar"])
 
 
         repositories.maven {

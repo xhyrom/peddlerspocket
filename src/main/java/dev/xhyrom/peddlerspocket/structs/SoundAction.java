@@ -1,11 +1,11 @@
-package me.xhyrom.peddlerspocket.structs;
+package dev.xhyrom.peddlerspocket.structs;
 
 import org.bukkit.entity.Player;
 
 public class SoundAction implements Action {
-    private String sound;
-    private float volume = 1;
-    private float pitch = 1;
+    private final String sound;
+    private final float volume;
+    private final float pitch;
 
     public SoundAction(String sound, float volume, float pitch) {
         this.sound = sound;

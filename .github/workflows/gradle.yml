@@ -20,7 +20,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -65,4 +64,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            build/libs/PeddlersPocket-*.jar
+            build/libs/*.jar

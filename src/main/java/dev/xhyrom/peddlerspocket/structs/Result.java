@@ -1,4 +1,4 @@
-package me.xhyrom.peddlerspocket.structs;
+package dev.xhyrom.peddlerspocket.structs;
 
 public enum Result {
     SUCCESS,

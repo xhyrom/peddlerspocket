@@ -1,7 +1,7 @@
-package me.xhyrom.peddlerspocket.ui;
+package dev.xhyrom.peddlerspocket.ui;
 
-import me.xhyrom.peddlerspocket.PeddlersPocket;
-import me.xhyrom.peddlerspocket.api.PeddlersPocketAPI;
+import dev.xhyrom.peddlerspocket.PeddlersPocket;
+import dev.xhyrom.peddlerspocket.api.PeddlersPocketAPI;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,11 +16,11 @@ public class SellUI implements Listener {
 
     public void open(Player player) {
         int size = 9;
-        if (player.hasPermission("peddlerspocket.small")) size = 18;
-        if (player.hasPermission("peddlerspocket.medium")) size = 27;
-        if (player.hasPermission("peddlerspocket.large")) size = 36;
-        if (player.hasPermission("peddlerspocket.huge")) size = 45;
-        if (player.hasPermission("peddlerspocket.giant")) size = 54;
+        if (player.hasPermission("peddlerspocket.gui.giant")) size = 54;
+        else if (player.hasPermission("peddlerspocket.gui.huge")) size = 45;
+        else if (player.hasPermission("peddlerspocket.gui.large")) size = 36;
+        else if (player.hasPermission("peddlerspocket.gui.medium")) size = 27;
+        else if (player.hasPermission("peddlerspocket.gui.small")) size = 18;
 
         inventory = Bukkit.createInventory(null, size, MiniMessage.miniMessage().deserialize(
                 PeddlersPocket.getInstance().config.getString("ui.title")

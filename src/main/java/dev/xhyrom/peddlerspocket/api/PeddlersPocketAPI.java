@@ -1,8 +1,8 @@
-package me.xhyrom.peddlerspocket.api;
+package dev.xhyrom.peddlerspocket.api;
 
-import me.xhyrom.peddlerspocket.PeddlersPocket;
-import me.xhyrom.peddlerspocket.structs.Action;
-import me.xhyrom.peddlerspocket.structs.Result;
+import dev.xhyrom.peddlerspocket.PeddlersPocket;
+import dev.xhyrom.peddlerspocket.structs.Result;
+import dev.xhyrom.peddlerspocket.structs.Action;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

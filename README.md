@@ -1,10 +1,8 @@
-<h1 align="center">
-  <br>
-  <img src="https://github.com/xHyroM/website/blob/main/src/assets/logo.png?raw=true" alt="Hyro" width="256">
-  <br>
-</h1>
+<p align="center">
+  <img src="./.github/pocket.png" alt="pocket" width="90" height="69">
+</p>
 
-<h4 align="center">Source code for Peddler's Pocket, a paper plugin.</h4>
+<h1 align="center">Peddler's Pocket</h1>
 
 <p align="center">
     <a href="https://s.xhyrom.dev/discord" alt="Discord">
@@ -12,16 +10,28 @@
     </a>
 </p>
 
-## Informations
+**Peddler's Pocket:** - Plugin that allows you to sell items and blocks easily.
 
-- /sell command that allows you to put things into GUI and then sell them by closing
+## Commands
 
-## Setup
+- `/sell` - Opens the sell gui
+
+## Permissions
+
+- `peddlerspocket.sell` - Allows you to use /sell command
+- `peddlerspocket.gui.giant` - Sell gui with 54 slots
+- `peddlerspocket.gui.huge` - Sell gui with 45 slots
+- `peddlerspocket.gui.large` - Sell gui with 36 slots
+- `peddlerspocket.gui.medium` - Sell gui with 27 slots
+- `peddlerspocket.gui.small` - Sell gui with 18 slots
+- **without** permission - Sell gui with 9 slots
+
+### Setup
 
 1. Clone this repository: `git clone https://github.com/xHyroM/peddlerspocket.git`
 2. Open project in Intellij Idea
 
-## Contributing
+### Contributing
 
 To contribute to this project, please follow the [standard Git workflow](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#The-Standard-Git-Workflow) and [CONTRIBUTING](./CONTRIBUTING.md).
 
@@ -31,7 +41,7 @@ To contribute to this project, please follow the [standard Git workflow](https:/
 4. Push the branch: `git push origin my-feature`
 5. Open a pull request
 
-## License
+### License
 
 This project is licensed under the [MIT License](./LICENSE).
 

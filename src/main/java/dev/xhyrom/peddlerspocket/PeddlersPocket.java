@@ -1,11 +1,10 @@
-package me.xhyrom.peddlerspocket;
+package dev.xhyrom.peddlerspocket;
 
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
-import dev.jorel.commandapi.CommandAPIConfig;
+import dev.xhyrom.peddlerspocket.structs.*;
 import lombok.Getter;
-import me.xhyrom.peddlerspocket.commands.PeddlersCommand;
-import me.xhyrom.peddlerspocket.structs.*;
+import dev.xhyrom.peddlerspocket.commands.PeddlersCommand;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,9 +16,9 @@ public class PeddlersPocket extends JavaPlugin {
     @Getter
     private static PeddlersPocket instance;
     @Getter
-    private HashMap<Material, Double> prices = new HashMap<>();
+    private final HashMap<Material, Double> prices = new HashMap<>();
     @Getter
-    private HashMap<Result, ArrayList<Action>> actions = new HashMap<>();
+    private final HashMap<Result, ArrayList<Action>> actions = new HashMap<>();
     public FileConfiguration config = getConfig();
 
     @Override

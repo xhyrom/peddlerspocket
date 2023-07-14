@@ -1,11 +1,11 @@
-package me.xhyrom.peddlerspocket.structs;
+package dev.xhyrom.peddlerspocket.structs;
 
-import me.xhyrom.peddlerspocket.utils.Utils;
+import dev.xhyrom.peddlerspocket.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class CommandAction implements Action {
-    private String command;
+    private final String command;
 
     public CommandAction(String command) {
         this.command = command;
@@ -18,11 +18,7 @@ public class CommandAction implements Action {
                 command
                         .replace("<player>", player.getName())
                         .replace("<price>", String.valueOf(result))
-                        .replace("<price_formatted>", Utils.moveCurrencySymbol(
-                                Utils.removeDecimalIfZero(
-                                        Utils.format(result)
-                                )
-                        ))
+                        .replace("<price_formatted>", Utils.format(result))
         );
     }
 }
