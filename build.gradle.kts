@@ -11,18 +11,19 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
-    maven("https://repo.purpurmc.org/snapshots")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
     maven("https://repo.codemc.org/repository/maven-public/")
 }
 
 dependencies {
-    compileOnly("org.purpurmc.purpur", "purpur-api", "1.19.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
 
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
     implementation("dev.jorel:commandapi-bukkit-shade:9.0.3")
+    implementation("net.kyori:adventure-text-minimessage:4.14.0")
 }
 
 
@@ -52,6 +53,7 @@ tasks {
 
 fun ShadowJar.configureRelocations() {
     relocate("dev.jorel.commandapi", "dev.xhyrom.peddlerspocket.libs.commandapi")
+    relocate("net.kyori", "dev.xhyrom.peddlerspocket.libs.kyori")
 }
 
 publishing {

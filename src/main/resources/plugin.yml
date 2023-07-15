@@ -3,4 +3,4 @@ description: /sell command that allows you to put things into GUI and then sell 
 version: @version@
 author: xHyroM
 main: dev.xhyrom.peddlerspocket.PeddlersPocket
-api-version: 1.19
+api-version: 1.17
