@@ -10,7 +10,7 @@
     </a>
 </p>
 
-**Peddler's Pocket:** - Plugin that allows you to sell items and blocks easily.
+**Peddler's Pocket** is a plugin that makes the item selling experience easier. With its powerful "/sell" command and user-friendly GUI, it streamlines the process and maximizes your server's economy. Say goodbye to manual selling and embrace the convenience and efficiency of this exceptional plugin.
 
 ## Commands
 
@@ -26,7 +26,7 @@
 - `peddlerspocket.gui.small` - Sell gui with 18 slots
 - **without** permission - Sell gui with 9 slots
 
-### Setup
+## Development
 
 1. Clone this repository: `git clone https://github.com/xHyroM/peddlerspocket.git`
 2. Open project in Intellij Idea
