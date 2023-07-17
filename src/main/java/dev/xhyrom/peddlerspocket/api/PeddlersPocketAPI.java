@@ -6,6 +6,7 @@ import dev.xhyrom.peddlerspocket.structs.Action;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -53,9 +54,22 @@ public class PeddlersPocketAPI {
      * Get the price of an item
      *
      * @param material The item to get the price of
-     * @return The price of the item or 0 if the item is not sellable
+     * @return The price of the item, or `null` if the item is not sellable
      */
+    @Nullable
     public static Double getPrice(Material material) {
-        return PeddlersPocket.getInstance().getPrices().getOrDefault(material, 0.0);
+        return PeddlersPocket.getInstance().getPrices().get(material);
+    }
+
+    /**
+     * Get the price of an item, or a default value if the item is not sellable
+     *
+     * @param material The item to get the price of
+     * @param defaultValue The default value to return if the item is not sellable
+     * @return The price of the item, or the default value if the item is not sellable
+     */
+    @Nullable
+    public static Double getPriceOrDefault(Material material, double defaultValue) {
+        return PeddlersPocket.getInstance().getPrices().getOrDefault(material, defaultValue);
     }
 }
