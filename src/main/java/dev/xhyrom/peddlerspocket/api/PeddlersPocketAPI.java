@@ -38,4 +38,8 @@ public class PeddlersPocketAPI {
 
         return notSold;
     }
+
+    public static Double getPrice(Material material) {
+        return PeddlersPocket.getInstance().getPrices().get(material);
+    }
 }
