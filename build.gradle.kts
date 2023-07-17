@@ -53,7 +53,6 @@ tasks {
 
 fun ShadowJar.configureRelocations() {
     relocate("dev.jorel.commandapi", "dev.xhyrom.peddlerspocket.libs.commandapi")
-    relocate("net.kyori", "dev.xhyrom.peddlerspocket.libs.kyori")
 }
 
 publishing {
