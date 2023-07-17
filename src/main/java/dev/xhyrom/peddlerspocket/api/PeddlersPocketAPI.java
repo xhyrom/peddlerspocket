@@ -18,8 +18,8 @@ public class PeddlersPocketAPI {
             if (item == null) continue;
             if (item.getType() == Material.AIR) continue;
 
-            if (PeddlersPocket.getInstance().getPrices().containsKey(item.getType())) {
-                double price = PeddlersPocket.getInstance().getPrices().get(item.getType()) * item.getAmount();
+            if (isSellable(item.getType())) {
+                double price = getPrice(item.getType()) * item.getAmount();
                 result += price;
             } else {
                 notSold.add(item);
@@ -39,7 +39,23 @@ public class PeddlersPocketAPI {
         return notSold;
     }
 
+    /**
+     * Check if an item is sellable
+     *
+     * @param material The item to check
+     * @return `true` if the item is sellable, `false` otherwise
+     */
+    public static boolean isSellable(Material material) {
+        return PeddlersPocket.getInstance().getPrices().containsKey(material);
+    }
+
+    /**
+     * Get the price of an item
+     *
+     * @param material The item to get the price of
+     * @return The price of the item or 0 if the item is not sellable
+     */
     public static Double getPrice(Material material) {
-        return PeddlersPocket.getInstance().getPrices().get(material);
+        return PeddlersPocket.getInstance().getPrices().getOrDefault(material, 0.0);
     }
 }

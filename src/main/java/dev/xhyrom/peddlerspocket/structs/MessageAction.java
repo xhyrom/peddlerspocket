@@ -1,6 +1,6 @@
 package dev.xhyrom.peddlerspocket.structs;
 
-import dev.xhyrom.peddlerspocket.utils.Utils;
+import dev.xhyrom.peddlerspocket.utils.Util;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class MessageAction implements Action {
         player.sendMessage(MiniMessage.miniMessage().deserialize(
                 this.message,
                 Placeholder.parsed("price", String.valueOf(result)),
-                Placeholder.parsed("price_formatted", Utils.format(result)),
+                Placeholder.parsed("price_formatted", Util.format(result)),
                 Placeholder.parsed("player", player.getName())
         ));
     }

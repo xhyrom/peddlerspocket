@@ -3,7 +3,7 @@ package dev.xhyrom.peddlerspocket.utils;
 import java.text.NumberFormat;
 import java.util.Currency;
 
-public class Utils {
+public class Util {
     public static String format(double amount) {
         final NumberFormat format = NumberFormat.getCurrencyInstance();
         format.setMaximumFractionDigits(2);

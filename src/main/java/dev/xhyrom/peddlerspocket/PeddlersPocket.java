@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class PeddlersPocket extends JavaPlugin {
     @Getter
@@ -34,17 +35,18 @@ public class PeddlersPocket extends JavaPlugin {
         instance = this;
         CommandAPI.onEnable();
 
-        config.getConfigurationSection("materials").getKeys(false).forEach(key -> {
-            config.getConfigurationSection("materials."+key).getValues(false).forEach((k, v) -> {
-                prices.put(Material.getMaterial(k.toString()), Double.parseDouble(v.toString()));
+        Objects.requireNonNull(config.getConfigurationSection("materials")).getKeys(false).forEach(key -> {
+            Objects.requireNonNull(config.getConfigurationSection("materials." + key)).getValues(false).forEach((k, v) -> {
+                prices.put(Material.getMaterial(k), Double.parseDouble(v.toString()));
             });
         });
 
-        config.getConfigurationSection("actions").getKeys(false).forEach(key -> {
+        Objects.requireNonNull(config.getConfigurationSection("actions")).getKeys(false).forEach(key -> {
             ArrayList<Action> actions = new ArrayList<>();
 
             ArrayList<HashMap<String, Object>> config_actions = (ArrayList<HashMap<String, Object>>) config.get("actions."+key);
 
+            assert config_actions != null;
             config_actions.forEach(config_action -> {
                 if (config_action.containsKey("title"))
                     actions.add(new TitleAction(

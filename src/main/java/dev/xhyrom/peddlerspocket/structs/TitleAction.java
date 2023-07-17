@@ -1,6 +1,6 @@
 package dev.xhyrom.peddlerspocket.structs;
 
-import dev.xhyrom.peddlerspocket.utils.Utils;
+import dev.xhyrom.peddlerspocket.utils.Util;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.title.Title;
@@ -21,13 +21,13 @@ public class TitleAction implements Action {
                 MiniMessage.miniMessage().deserialize(
                         title,
                         Placeholder.parsed("price", String.valueOf(result)),
-                        Placeholder.parsed("price_formatted", Utils.format(result)),
+                        Placeholder.parsed("price_formatted", Util.format(result)),
                         Placeholder.parsed("player", player.getName())
                 ),
                 MiniMessage.miniMessage().deserialize(
                         subtitle,
                         Placeholder.parsed("price", String.valueOf(result)),
-                        Placeholder.parsed("price_formatted", Utils.format(result)),
+                        Placeholder.parsed("price_formatted", Util.format(result)),
                         Placeholder.parsed("player", player.getName())
                 ))
         );

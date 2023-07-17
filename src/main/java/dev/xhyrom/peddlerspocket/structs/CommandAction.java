@@ -1,6 +1,6 @@
 package dev.xhyrom.peddlerspocket.structs;
 
-import dev.xhyrom.peddlerspocket.utils.Utils;
+import dev.xhyrom.peddlerspocket.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -18,7 +18,7 @@ public class CommandAction implements Action {
                 command
                         .replace("<player>", player.getName())
                         .replace("<price>", String.valueOf(result))
-                        .replace("<price_formatted>", Utils.format(result))
+                        .replace("<price_formatted>", Util.format(result))
         );
     }
 }
