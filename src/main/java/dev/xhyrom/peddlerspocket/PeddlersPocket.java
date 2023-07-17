@@ -20,7 +20,6 @@ public class PeddlersPocket extends JavaPlugin {
     private final HashMap<Material, Double> prices = new HashMap<>();
     @Getter
     private final HashMap<Result, ArrayList<Action>> actions = new HashMap<>();
-    public FileConfiguration config;
 
     @Override
     public void onLoad() {
@@ -30,21 +29,20 @@ public class PeddlersPocket extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        config = getConfig();
 
         instance = this;
         CommandAPI.onEnable();
 
-        Objects.requireNonNull(config.getConfigurationSection("materials")).getKeys(false).forEach(key -> {
-            Objects.requireNonNull(config.getConfigurationSection("materials." + key)).getValues(false).forEach((k, v) -> {
+        Objects.requireNonNull(getConfig().getConfigurationSection("materials")).getKeys(false).forEach(key -> {
+            Objects.requireNonNull(getConfig().getConfigurationSection("materials." + key)).getValues(false).forEach((k, v) -> {
                 prices.put(Material.getMaterial(k), Double.parseDouble(v.toString()));
             });
         });
 
-        Objects.requireNonNull(config.getConfigurationSection("actions")).getKeys(false).forEach(key -> {
+        Objects.requireNonNull(getConfig().getConfigurationSection("actions")).getKeys(false).forEach(key -> {
             ArrayList<Action> actions = new ArrayList<>();
 
-            ArrayList<HashMap<String, Object>> config_actions = (ArrayList<HashMap<String, Object>>) config.get("actions."+key);
+            ArrayList<HashMap<String, Object>> config_actions = (ArrayList<HashMap<String, Object>>) getConfig().get("actions."+key);
 
             assert config_actions != null;
             config_actions.forEach(config_action -> {

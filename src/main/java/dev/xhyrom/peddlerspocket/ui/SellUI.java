@@ -11,6 +11,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 
+import java.util.Objects;
+
 public class SellUI implements Listener {
     private Inventory inventory;
 
@@ -23,7 +25,7 @@ public class SellUI implements Listener {
         else if (player.hasPermission("peddlerspocket.gui.small")) size = 18;
 
         inventory = Bukkit.createInventory(null, size, MiniMessage.miniMessage().deserialize(
-                PeddlersPocket.getInstance().config.getString("ui.title")
+                Objects.requireNonNull(PeddlersPocket.getInstance().getConfig().getString("ui.title"))
         ));
 
         Bukkit.getPluginManager().registerEvents(this, PeddlersPocket.getInstance());
