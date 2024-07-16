@@ -22,7 +22,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
-    implementation("dev.jorel:commandapi-bukkit-shade:9.0.3")
+    implementation("dev.jorel:commandapi-bukkit-shade:9.5.1")
     implementation("net.kyori:adventure-text-minimessage:4.14.0")
 }
 
